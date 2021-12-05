@@ -31,13 +31,13 @@ export const Footer = (props: any) => {
               </li>
             ))}
           </ul>
-          <div className="site__footer">
+          <div className="site__footer py-4 md:py-0">
             <p
               style={{
                 fontFamily: " 'Poppins', sans-serif ",
                 fontSize: 14,
               }}
-              className="text-gray-800"
+              className="text-gray-800 text-center"
             >
               © 2021 BM Square, All Rights Reserved.
             </p>
@@ -46,7 +46,7 @@ export const Footer = (props: any) => {
                 fontFamily: " 'Poppins', sans-serif ",
                 fontSize: 14,
               }}
-              className="text-gray-800"
+              className="text-gray-800 text-center"
             >
               Made by Asam.
             </p>

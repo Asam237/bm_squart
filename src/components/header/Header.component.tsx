@@ -7,7 +7,7 @@ export const Header = (props: any) => {
   const history = useHistory();
   return (
     <header
-      className="site__header py-4 px-4 md:px-0"
+      className="site__header py-4 px-4 md:px-0 sticky top-0 z-50"
       style={{ background: `${COLORS.primaryColor}` }}
     >
       <div className="container mx-auto">
