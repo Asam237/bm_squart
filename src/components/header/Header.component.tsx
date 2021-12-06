@@ -42,18 +42,7 @@ export const Header = (props: any) => {
                 className="uppercase hover:bg-blue-900 hover:text-gray-300 border-gray-300 bg-blue-300 border-2 rounded-sm text-gray-700 px-4 py-2 text-sm font-extrabold"
                 onClick={(e: any) => null}
               >
-                INSCRIPTION
-              </button>
-            </li>
-            <li
-              style={{ fontFamily: " 'Poppins', sans-serif" }}
-              className="mt-3 md:mt-0 md:mr-4 inline-block"
-            >
-              <button
-                onClick={() => history.push("/login")}
-                className="uppercase hover:bg-blue-900 hover:text-gray-300 border-gray-300 text-gray-700 border-2 rounded-sm font-extrabold px-4 py-2 text-sm bg-blue-300"
-              >
-                CONNEXION
+                ANGLAIS
               </button>
             </li>
           </div>

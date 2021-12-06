@@ -18,7 +18,10 @@ export const LoginInput = (props: any) => {
           style={{ fontFamily: " 'Poppins', sans-serif" }}
         >
           Ou{" "}
-          <a href="#" className="hover:underline text-green-700">
+          <a
+            href={props.changeBySign}
+            className="hover:underline text-green-700"
+          >
             {" "}
             Créer votre compte pour démarrer une formation{" "}
           </a>
