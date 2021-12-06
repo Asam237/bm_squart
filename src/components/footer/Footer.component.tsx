@@ -6,7 +6,7 @@ export const Footer = (props: any) => {
   return (
     <div className="site__footer border-t">
       <div className="container mx-auto">
-        <div className="flex flex-col md:flex-row px-4 md:px-0 pt-4 md:pt items-center md:justify-start md:justify-between">
+        <div className="flex flex-col md:flex-row px-4 pt-4 md:pt items-center md:justify-start md:justify-between">
           <MyText
             myTextAlign="text-center"
             myTextColor="text-gray-900"
