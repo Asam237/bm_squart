@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { COLORS } from "../../assets/themes/globals.themes";
 import { LANGUAGES } from "../../constants/languages";
 import { useHistory } from "react-router-dom";
@@ -14,10 +14,7 @@ export const Header = (props: any) => {
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between">
           <div className="site__header__logo">
             <a
-              style={{
-                fontFamily: " 'Poppins', sans-serif",
-                borderWidth: "2px",
-              }}
+              style={styles.header__link}
               href="#"
               className="site__header__logo-link border-gray-300 text-gray-200 px-4 py-2 rounded-full font-bold text-sm uppercase hover:text-gray-300 hover:bg-blue-900"
             >
@@ -64,4 +61,11 @@ export const Header = (props: any) => {
       </div>
     </header>
   );
+};
+
+const styles = {
+  header__link: {
+    fontFamily: " 'Poppins', sans-serif",
+    borderWidth: "2px",
+  },
 };
