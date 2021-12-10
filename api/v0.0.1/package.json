@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "start": "nodemon api/v0.0.1/index.js"
+  },
   "dependencies": {
     "cors": "^2.8.5",
     "crypto-js": "^4.1.1",
