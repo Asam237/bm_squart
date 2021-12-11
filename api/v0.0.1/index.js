@@ -5,6 +5,7 @@ const mongoose = require("mongoose")
 const dotenv = require("dotenv")
 const path = require("path")
 const userRoute = require("./routes/auth")
+const introRoute = require("./routes/intro")
 
 
 mongoose
@@ -21,6 +22,8 @@ app.use(express.urlencoded({
 }))
 
 app.use("/api/auth", userRoute)
+app.use("/api/intro", introRoute)
+
 app.listen(process.env.PORT || 5000, () => {
     console.log('BackEnd server is running!')
 })
