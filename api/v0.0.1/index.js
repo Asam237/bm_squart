@@ -8,7 +8,7 @@ const userRoute = require("./routes/auth")
 
 
 mongoose
-    .connect(process.env.MONGO_URL)
+    .connect("mongodb://localhost:27017/MyTest")
     .then(() => console.log("DB connection successfull!"))
     .catch((err) => {
         console.log(err)

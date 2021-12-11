@@ -1,4 +1,8 @@
 {
+  "name": "bakcendsempos",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "scripts": {
     "start": "nodemon api/v0.0.1/index.js"
   },
