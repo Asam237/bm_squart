@@ -1,9 +1,14 @@
-import React from "react";
-import { COLORS } from "../../assets/themes/globals.themes";
+import React, { useEffect, useState } from "react";
 import { LANGUAGES } from "../../constants/languages";
 import { MyText } from "../myText/MyText.component";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { introState } from "../../atom/intro";
 
 export const Banner = (props: any) => {
+  let introParagraphe: any = useRecoilValue(introState);
+
+  console.log("value:::::", introParagraphe);
+
   return (
     <div className="site__banner bg-gray-900" style={{ height: "60vh" }}>
       <div className="container h-full mx-auto">

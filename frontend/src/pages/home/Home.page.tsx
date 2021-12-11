@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { Banner } from "../../components/banner/Banner.component";
 import { Footer } from "../../components/footer/Footer.component";
 import { Header } from "../../components/header/Header.component";
@@ -11,7 +11,9 @@ export const Home = () => {
   return (
     <div className="site">
       <Header name="BM " />
-      <Banner />
+      <Suspense fallback="chargement..">
+        <Banner />
+      </Suspense>
       <Service />
       <Footer title={LANGUAGES.home.name} />
     </div>
