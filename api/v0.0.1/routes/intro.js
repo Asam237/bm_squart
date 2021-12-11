@@ -12,4 +12,30 @@ router.post("/", async (req, res) => {
     }
 })
 
+router.get("/", async (req, res) => {
+    const qNew = req.query.new;
+    const qIntro = req.query.intro;
+    try {
+        let Intros;
+
+        if (qNew) {
+            Intros = await Intro.find().sort({ createdAt: -1 }).limit(1);
+        } else if (qIntro) {
+            Intros = await Intro.find({
+                intros: {
+                    $in: [qIntro],
+                },
+            });
+        } else {
+            Intros = await Intro.find().populate();
+        }
+
+        res.status(200).json(Intros);
+    } catch (err) {
+        console.log(err)
+        res.status(500).json(err);
+    }
+});
+
+
 module.exports = router
