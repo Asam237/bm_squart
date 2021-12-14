@@ -2,7 +2,8 @@ import React from "react";
 import { MyInput } from "../myInput/MyInput.component";
 import { useHistory } from "react-router-dom";
 import { Home } from "../../pages/home/Home.page";
-import { Formik } from "formik";
+import { ErrorMessage, Formik } from "formik";
+import * as Yup from "yup";
 
 export const LoginInput = (props: any) => {
   const history = useHistory();
@@ -22,6 +23,10 @@ export const LoginInput = (props: any) => {
     <div className="container pt-20 px-4 md:px-0 md:py-16 max-w-max mx-auto">
       <Formik
         initialValues={initialValues}
+        validationSchema={Yup.object().shape({
+          email: Yup.string().required("Email is required"),
+          password: Yup.string().required("Password is required"),
+        })}
         onSubmit={(value: any) => {
           submit(value);
         }}
@@ -52,10 +57,20 @@ export const LoginInput = (props: any) => {
               myInputText="text"
               title="Adresse Email"
             />
+            <ErrorMessage
+              name="email"
+              component="div"
+              className="text-red-600 text-sm"
+            />
             <MyInput
               onChangeText={handleChange("password")}
               myInputText="password"
               title="Mot de passe"
+            />
+            <ErrorMessage
+              name="password"
+              component="div"
+              className="text-red-600 text-sm"
             />
             <div className="site__login-remember py-3 flex flex-col md:flex-row items-start md:items-center justify-start md:justify-between w-full">
               <div className="flex items-center">
