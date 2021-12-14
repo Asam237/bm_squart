@@ -38,12 +38,12 @@ export const Header = (props: any) => {
               style={{ fontFamily: " 'Poppins', sans-serif" }}
               className="hidden  mt-3 md:mt-0 md:mr-4 md:inline-block"
             >
-              <button
+              <a
+                href="/login"
                 className="uppercase hover:bg-blue-900 hover:text-gray-300 border-gray-300 bg-blue-300 border-2 rounded-sm text-gray-700 px-4 py-2 text-sm font-extrabold"
-                onClick={(e: any) => null}
               >
-                ANGLAIS
-              </button>
+                CONNEXION
+              </a>
             </li>
           </div>
         </div>
