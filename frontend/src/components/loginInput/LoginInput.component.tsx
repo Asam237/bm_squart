@@ -46,8 +46,8 @@ export const LoginInput = (props: any) => {
             >
               Ou{" "}
               <a
-                href={props.changeBySign}
-                className="hover:underline text-green-700"
+                onClick={props.signup}
+                className="hover:underline cursor-pointer text-green-700"
               >
                 {" "}
                 Créer votre compte pour démarrer une formation{" "}
