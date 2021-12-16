@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { MyInput } from "../myInput/MyInput.component";
 import { useHistory } from "react-router-dom";
 import { Home } from "../../pages/home/Home.page";
 import { ErrorMessage, Formik } from "formik";
 import * as Yup from "yup";
+import { login } from "../services/auth.service";
 
 export const LoginInput = (props: any) => {
   const history = useHistory();
@@ -11,14 +12,10 @@ export const LoginInput = (props: any) => {
     email: "",
     password: "",
   };
-  let submit = (values: any): any => {
-    if (values.email === "test@test.com" && values.password === "123456") {
-      console.log(values);
-      history.push("/");
-    } else {
-      console.log("informations non valide !", values);
-    }
+  let submit = async (value: any) => {
+    await login(value.email, value.password);
   };
+
   return (
     <div className="container pt-20 px-4 md:px-0 md:py-16 max-w-max mx-auto">
       <Formik
