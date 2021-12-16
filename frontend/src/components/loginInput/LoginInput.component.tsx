@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 import { Home } from "../../pages/home/Home.page";
 import { ErrorMessage, Formik } from "formik";
 import * as Yup from "yup";
-import { login } from "../services/auth.service";
+import { loginService } from "../../services/auth.service";
 
 export const LoginInput = (props: any) => {
   const history = useHistory();
@@ -13,7 +13,11 @@ export const LoginInput = (props: any) => {
     password: "",
   };
   let submit = async (value: any) => {
-    await login(value.email, value.password);
+    if ((await loginService(value.email, value.password)) != {}) {
+      console.log("Different de lobject");
+    } else {
+      await loginService(value.email, value.password);
+    }
   };
 
   return (

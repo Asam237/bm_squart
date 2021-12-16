@@ -1,15 +1,50 @@
 import axios from "axios"
+const BASE_URL = "https://dashboard.mystore.lamater.net/api/2021-05";
 
-export const signin = async (email: string, password: string) => {
-    await axios({
-        method: 'POST',
-        url: ''
-    })
+const headers = {
+    'Content-Type': 'application/json',
+};
+
+export const loginService = async (email: string, password: string) => {
+    const data = {
+        email,
+        password
+    }
+    console.log("Data here !", data)
+    try {
+        const result = await axios({
+            url: `${BASE_URL}/clients/login`,
+            data,
+            method: "POST",
+            headers
+        })
+        console.log("Result:::::", await result.data)
+        return result.data
+    } catch (e) {
+        console.log("Erreur de la console !", e)
+    }
 }
 
-export const signup = async (name: string, email: string, password: string) => {
-    await axios({
-        method: 'POST',
-        url: ''
-    })
+
+export const registerService = async (email: string, tel: string, firstname: string, surname: string, password: string) => {
+    const data = {
+        email,
+        tel,
+        firstname,
+        surname,
+        password
+    }
+    try {
+        const result = await axios({
+            url: `${BASE_URL}/clients/register`,
+            data,
+            method: "POST",
+            headers
+        })
+        console.log("RESULT:::", result.data)
+        return result.data
+    } catch (e) {
+        console.log(e)
+    }
+
 }
