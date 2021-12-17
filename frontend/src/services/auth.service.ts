@@ -1,5 +1,5 @@
 import axios from "axios"
-const BASE_URL = "https://dashboard.mystore.lamater.net/api/2021-05";
+const BASE_URL = "http://127.0.0.1:5000/api/auth";
 
 const headers = {
     'Content-Type': 'application/json',
@@ -13,7 +13,7 @@ export const loginService = async (email: string, password: string) => {
     console.log("Data here !", data)
     try {
         const result = await axios({
-            url: `${BASE_URL}/clients/login`,
+            url: `${BASE_URL}/login`,
             data,
             method: "POST",
             headers
@@ -26,17 +26,15 @@ export const loginService = async (email: string, password: string) => {
 }
 
 
-export const registerService = async (email: string, tel: string, firstname: string, surname: string, password: string) => {
+export const registerService = async (username: string, email: string, password: string) => {
     const data = {
+        username,
         email,
-        tel,
-        firstname,
-        surname,
         password
     }
     try {
         const result = await axios({
-            url: `${BASE_URL}/clients/register`,
+            url: `${BASE_URL}/register`,
             data,
             method: "POST",
             headers

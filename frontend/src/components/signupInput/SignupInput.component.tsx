@@ -1,22 +1,20 @@
 import { Formik, ErrorMessage } from "formik";
 import React from "react";
 import { useHistory } from "react-router-dom";
-import { loginService } from "../../services/auth.service";
+import { registerService } from "../../services/auth.service";
 import { MyInput } from "../myInput/MyInput.component";
 import * as Yup from "yup";
 
 export const SignupInput = (props: any) => {
   const history = useHistory();
-  const initialValues = {
+  let initialValues = {
+    username: "",
     email: "",
     password: "",
   };
   let submit = async (value: any) => {
-    if ((await loginService(value.email, value.password)) != {}) {
-      console.log("Different de lobject");
-    } else {
-      await loginService(value.email, value.password);
-    }
+    (await registerService(value.username, value.email, value.password)) &&
+      history.push("/dashboard");
   };
 
   return (
@@ -35,7 +33,7 @@ export const SignupInput = (props: any) => {
           <div className="flex flex-col justify-center items-start ">
             <p
               style={{ fontFamily: " 'Poppins', sans-serif" }}
-              className="font-extrabold text-xl md:text-3xl w-10/12 pb-2 md:pb-4"
+              className="font-extrabold text-xl md:text-3xl pb-2 md:pb-4"
             >
               Inscrivez-vous a BM<span>&#178;</span>
             </p>
@@ -54,7 +52,7 @@ export const SignupInput = (props: any) => {
             </p>
 
             <MyInput
-              onChangeText={handleChange("email")}
+              onChangeText={handleChange("username")}
               myInputText="text"
               title="Utilisateur"
             />
@@ -112,7 +110,7 @@ export const SignupInput = (props: any) => {
               style={{ fontFamily: " 'Poppins', sans-serif" }}
               className="hover:bg-blue-900 border-2 font-extrabold border-gray-300 hover:text-gray-300 bg-gray-800 w-full mt-4 text-sm text-white p-3 rounded-md"
             >
-              Se connecter
+              S'inscrire
             </button>
           </div>
         )}

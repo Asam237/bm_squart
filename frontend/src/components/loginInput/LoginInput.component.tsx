@@ -16,7 +16,8 @@ export const LoginInput = (props: any) => {
     if ((await loginService(value.email, value.password)) != {}) {
       console.log("Different de lobject");
     } else {
-      await loginService(value.email, value.password);
+      (await loginService(value.email, value.password)) &&
+        history.push("/dashboard");
     }
   };
 
@@ -36,7 +37,7 @@ export const LoginInput = (props: any) => {
           <div className="flex flex-col justify-center items-start ">
             <p
               style={{ fontFamily: " 'Poppins', sans-serif" }}
-              className="font-extrabold text-xl md:text-3xl w-10/12 pb-2 md:pb-4"
+              className="font-extrabold text-xl md:text-3xl pb-2 md:pb-4"
             >
               Connectez-vous a BM<span>&#178;</span>
             </p>
@@ -54,9 +55,9 @@ export const LoginInput = (props: any) => {
               </a>
             </p>
             <MyInput
-              onChangeText={handleChange("email")}
+              onChangeText={handleChange("username")}
               myInputText="text"
-              title="Adresse Email"
+              title="Username"
             />
             <ErrorMessage
               name="email"
