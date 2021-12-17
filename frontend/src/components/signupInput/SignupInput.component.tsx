@@ -4,9 +4,12 @@ import { useHistory } from "react-router-dom";
 import { registerService } from "../../services/auth.service";
 import { MyInput } from "../myInput/MyInput.component";
 import * as Yup from "yup";
+import { useRecoilState } from "recoil";
+import { nameState } from "../../atoms/name";
 
 export const SignupInput = (props: any) => {
   const history = useHistory();
+  let [name, setName]: any = useRecoilState(nameState);
   let initialValues = {
     username: "",
     email: "",
@@ -15,6 +18,7 @@ export const SignupInput = (props: any) => {
   let submit = async (value: any) => {
     (await registerService(value.username, value.email, value.password)) &&
       history.push("/dashboard");
+    setName(() => (name = value.email));
   };
 
   return (

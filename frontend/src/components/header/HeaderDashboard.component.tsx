@@ -2,9 +2,13 @@ import React from "react";
 import user from "../../assets/img/user.png";
 import { LANGUAGES } from "../../constants/languages";
 import { useHistory } from "react-router";
+import { useRecoilValue } from "recoil";
+import { nameState } from "../../atoms/name";
 
 const HeaderDashboard = () => {
   const history = useHistory();
+  const name = useRecoilValue(nameState);
+  console.log("Name:::", name);
   return (
     <header className="site__header p-4 sticky z-50 bg-white">
       <div className="flex justify-between items-center">
@@ -28,10 +32,10 @@ const HeaderDashboard = () => {
         <div className="site__header-content flex justify-center items-center">
           <img src={user} alt="" className="w-8 h-8 mr-4" />
           <p
-            className="text-sm"
+            className="text-sm font-medium"
             style={{ fontFamily: " 'Poppins', sans-serif" }}
           >
-            ASAM
+            {name}
           </p>
         </div>
       </div>

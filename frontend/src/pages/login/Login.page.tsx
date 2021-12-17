@@ -9,6 +9,7 @@ document.title = "Connexion  |   BM²";
 export const Login = (props: any) => {
   let [login, setLogin]: any = useState(true);
   const history = useHistory();
+
   const changeBySign = () => {
     if (login === true) {
       return <LoginInput signup={() => setLogin((login = false))} />;

@@ -5,8 +5,11 @@ import { Home } from "../../pages/home/Home.page";
 import { ErrorMessage, Formik } from "formik";
 import * as Yup from "yup";
 import { loginService } from "../../services/auth.service";
+import { useRecoilState } from "recoil";
+import { nameState } from "../../atoms/name";
 
 export const LoginInput = (props: any) => {
+  let [name, setName]: any = useRecoilState(nameState);
   const history = useHistory();
   const initialValues = {
     email: "",
@@ -18,6 +21,7 @@ export const LoginInput = (props: any) => {
     } else {
       (await loginService(value.email, value.password)) &&
         history.push("/dashboard");
+      setName(() => (name = value.email));
     }
   };
 
