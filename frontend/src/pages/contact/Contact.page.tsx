@@ -12,6 +12,23 @@ const Contact = () => {
             >
               Contact Us
             </h1>
+            <div className="site__contact__input py-4">
+              <input
+                type="text"
+                className="px-4 py-2 w-10/12 lg:w-11/12 border-gray-300 border"
+                placeholder="Enter your name"
+              />
+              <input
+                type="text"
+                className="mt-3 px-4 py-2 w-10/12 lg:w-11/12 border-gray-300 border"
+                placeholder="Enter a valid email adress"
+              />
+              <input
+                type="text"
+                className="mt-3 px-4 py-2 w-10/12 lg:w-11/12 border-gray-300 border h-28"
+                placeholder="Enter your message"
+              />
+            </div>
           </div>
           <div className="contact__adress w-full md:w-1/2 bg-red-600 h-80"></div>
         </div>
