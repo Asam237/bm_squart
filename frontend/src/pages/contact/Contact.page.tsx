@@ -35,7 +35,7 @@ const Contact = () => {
               </div>
             </div>
           </div>
-          <div className="contact__adress w-full md:w-1/2 bg-red-600 h-80"></div>
+          <div className="contact__adress w-full md:w-1/2 bg-gray-900 h-80"></div>
         </div>
       </div>
     </div>

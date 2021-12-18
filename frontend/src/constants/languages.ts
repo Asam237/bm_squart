@@ -10,7 +10,7 @@ export const LANGUAGES = {
             },
             {
                 name: "Contact Us",
-                link: "#"
+                link: "#contact"
             }
         ],
         myButton: [
