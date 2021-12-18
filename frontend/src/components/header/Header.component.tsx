@@ -2,6 +2,7 @@ import React from "react";
 import { COLORS } from "../../assets/themes/globals.themes";
 import { LANGUAGES } from "../../constants/languages";
 import { useHistory } from "react-router-dom";
+import { HEADERITEMS } from "./headeritem";
 
 export const Header = (props: any) => {
   const history = useHistory();
@@ -12,7 +13,7 @@ export const Header = (props: any) => {
     >
       <div className="container mx-auto">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between">
-          <div className="site__header__logo">
+          <div className="site__header__logo flex flex-row md:flex-row md:items-center">
             <a
               style={styles.header__link}
               href="#"
@@ -21,6 +22,19 @@ export const Header = (props: any) => {
               {props.name}
               <span>&#178;</span> Management System
             </a>
+            <ul className="ml-6">
+              {HEADERITEMS.map((i: any) => (
+                <li className="md:mt-0 hidden md:mr-4 md:inline-block">
+                  <a
+                    style={{ fontFamily: " 'Poppins', sans-serif" }}
+                    className="hover:underline font-semibold text-sm text-gray-300"
+                    href={i.link}
+                  >
+                    {i.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
           <div className="site__header__nav flex flex-col md:flex-row items-start md:items-center pt-4 md:pt-0">
             {LANGUAGES.home.myNav.map((i: any) => (
