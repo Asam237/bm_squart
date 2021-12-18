@@ -1,10 +1,10 @@
 export const HEADERITEMS = [
     {
         name: "Customer",
-        link: "#"
+        link: "/login"
     },
     {
         name: "Admin",
-        link: "#"
+        link: "/login"
     },
 ]
