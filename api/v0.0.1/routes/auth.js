@@ -6,7 +6,10 @@ const CryptoJS = require("crypto-js")
 router.post("/register", async (req, res) => {
     const newUser = new User({
         username: req.body.username,
-        email: req.body.email,
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        mobile: req.body.mobile,
+        adress: req.body.adress,
         password: req.body.password
     })
     try {
