@@ -28,6 +28,11 @@ const Contact = () => {
                 className="mt-3 px-4 py-2 w-10/12 lg:w-11/12 border-gray-300 border h-28"
                 placeholder="Enter your message"
               />
+              <div className="mt-5  w-10/12 md:w-28 flex items-center justify-center hover:bg-gray-900 border-gray-300 bg-gray-800 border-2 rounded-sm text-white px-4 py-2 text-sm font-extrabold">
+                <a href="/login" className="text-white text-sm font-extrabold">
+                  Submit
+                </a>
+              </div>
             </div>
           </div>
           <div className="contact__adress w-full md:w-1/2 bg-red-600 h-80"></div>
