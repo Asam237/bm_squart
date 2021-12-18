@@ -2,12 +2,13 @@ import React, { useEffect, useState } from "react";
 import { LANGUAGES } from "../../constants/languages";
 import { MyText } from "../myText/MyText.component";
 import { useRecoilState, useRecoilValue } from "recoil";
+import { useHistory } from "react-router-dom";
 import { introState } from "../../atom/intro";
+import { url } from "inspector";
 
 export const Banner = (props: any) => {
   let introParagraphe: any = useRecoilValue(introState);
-
-  console.log("value:::::", introParagraphe);
+  const history = useHistory();
 
   return (
     <div className="site__banner bg-gray-900" style={{ height: "60vh" }}>
@@ -30,9 +31,9 @@ export const Banner = (props: any) => {
             />
           </div>
           <button
+            onClick={() => history.push("/login")}
             style={{ fontFamily: "'Poppins', sans-serif" }}
             className="uppercase hover:bg-blue-900 hover:text-gray-300 border-gray-300 bg-blue-300 border-2 rounded-sm text-gray-700 px-6 py-3 text-sm font-extrabold"
-            onClick={(e: any) => null}
           >
             COMMENCER MAINTENANT
           </button>
