@@ -48,7 +48,7 @@ export const Header = (props: any) => {
                 </a>
               </li>
             ))}
-            <li
+            {/* <li
               style={{ fontFamily: " 'Poppins', sans-serif" }}
               className="hidden  mt-3 md:mt-0 md:mr-4 md:inline-block"
             >
@@ -58,7 +58,7 @@ export const Header = (props: any) => {
               >
                 CONNEXION
               </a>
-            </li>
+            </li> */}
           </div>
         </div>
       </div>

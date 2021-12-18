@@ -5,11 +5,11 @@ export const LANGUAGES = {
         linkTwo: "A props",
         myNav: [
             {
-                name: "conseils & astuces",
+                name: "About Us",
                 link: "#"
             },
             {
-                name: "a propos",
+                name: "Contact Us",
                 link: "#"
             }
         ],
