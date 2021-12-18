@@ -16,13 +16,9 @@ export const LoginInput = (props: any) => {
     password: "",
   };
   let submit = async (value: any) => {
-    if ((await loginService(value.email, value.password)) != {}) {
-      console.log("Different de lobject");
-    } else {
-      (await loginService(value.email, value.password)) &&
-        history.push("/dashboard");
-      setName(() => (name = value.email));
-    }
+    (await loginService(value.email, value.password)) &&
+      history.push("/dashboard");
+    setName(() => (name = value.email));
   };
 
   return (
@@ -59,9 +55,9 @@ export const LoginInput = (props: any) => {
               </a>
             </p>
             <MyInput
-              onChangeText={handleChange("username")}
+              onChangeText={handleChange("email")}
               myInputText="text"
-              title="Username"
+              title="email"
             />
             <ErrorMessage
               name="email"
@@ -88,7 +84,7 @@ export const LoginInput = (props: any) => {
                 />
                 <p
                   style={{ fontFamily: " 'Poppins', sans-serif" }}
-                  className="text-sm font-medium text-gray-900"
+                  className="text-sm font-medium text-gray-898"
                 >
                   Se souvenir
                 </p>

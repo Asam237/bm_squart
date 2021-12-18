@@ -1,4 +1,5 @@
 import React from "react";
+import Aside from "../../components/aside/Aside.component";
 import HeaderDashboard from "../../components/header/HeaderDashboard.component";
 export const Dashboard = () => {
   return (
@@ -6,8 +7,8 @@ export const Dashboard = () => {
       <div className="site__dashboard">
         <HeaderDashboard />
         <main className="site__dashboard-main h-screen flex flex-row">
-          <aside className="site__aside hidden md:flex w-60 h-screen bg-red-500"></aside>
-          <section className="site__section flex bg-gray-400 w-full"></section>
+          <Aside />
+          <section className="site__section flex bg-gray-200 w-full"></section>
         </main>
       </div>
     </div>

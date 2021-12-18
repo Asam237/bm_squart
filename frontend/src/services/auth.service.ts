@@ -18,7 +18,6 @@ export const loginService = async (email: string, password: string) => {
             method: "POST",
             headers
         })
-        console.log("Result:::::", await result.data)
         return result.data
     } catch (e) {
         console.log("Erreur de la console !", e)
@@ -40,7 +39,11 @@ export const registerService = async (username: string, email: string, password:
             headers
         })
         console.log("RESULT:::", result.data)
-        return result.data
+        if (result.status === 201) {
+            return result.data
+        } else {
+            console.log("error")
+        }
     } catch (e) {
         console.log(e)
     }
