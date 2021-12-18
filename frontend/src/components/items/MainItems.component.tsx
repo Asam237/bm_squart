@@ -2,7 +2,7 @@ import React from "react";
 
 const MainItem = (props: any) => {
   return (
-    <div className="section__item px-4 rounded-md flex bg-gray-600 justify-between items-center h-32 w-full">
+    <div className="section__item px-4 cursor-pointer rounded-md flex bg-gray-700 hover:bg-gray-800 justify-between items-center h-32 w-full">
       <div className="flex flex-col">
         <p
           style={{
