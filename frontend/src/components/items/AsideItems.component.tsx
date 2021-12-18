@@ -2,7 +2,7 @@ import React from "react";
 
 const AsideItems = (props: any) => {
   return (
-    <div className="aside__one-item pt-3">
+    <div className="aside__one-item pt-4">
       <a
         className="text-gray-200 font-bold cursor-pointer uppercase hover:underline text-sm"
         href={props.linj}
