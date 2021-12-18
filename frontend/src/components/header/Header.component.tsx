@@ -41,7 +41,7 @@ export const Header = (props: any) => {
               <li className="md:mt-0 hidden md:mr-4 md:inline-block">
                 <a
                   style={{ fontFamily: " 'Poppins', sans-serif" }}
-                  className="uppercase hover:underline font-bold text-sm text-gray-200"
+                  className="hover:underline font-bold text-sm text-gray-300"
                   href={i.link}
                 >
                   {i.name}
