@@ -4,6 +4,7 @@ import { Footer } from "../../components/footer/Footer.component";
 import { Header } from "../../components/header/Header.component";
 import { Service } from "../../components/services/Service.component";
 import { LANGUAGES } from "../../constants/languages";
+import Contact from "../contact/Contact.page";
 
 document.title = "Home  |   BM²";
 
@@ -15,6 +16,7 @@ export const Home = () => {
         <Banner />
       </Suspense>
       <Service />
+      <Contact />
       <Footer title={LANGUAGES.home.name} />
     </div>
   );
