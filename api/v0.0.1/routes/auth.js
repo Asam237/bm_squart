@@ -14,7 +14,7 @@ router.post("/register", async (req, res) => {
     })
     try {
         const savedUser = await newUser.save()
-        res.status(201).json(newUser)
+        res.status(201).json(savedUser)
     } catch (e) {
         res.status(500).json(e)
     }
@@ -24,7 +24,7 @@ router.post('/login', async (req, res) => {
     try {
         const user = await User.findOne(
             {
-                email: req.body.email
+                username: req.body.email
             }
         );
         !user && res.status(401).json("Wrong User Name");
