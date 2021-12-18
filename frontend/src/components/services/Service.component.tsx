@@ -5,7 +5,7 @@ import servicepicture from "../../assets/img/service.png";
 
 export const Service = (props: any) => {
   return (
-    <div className="site__service py-8 md:py-16">
+    <div id="aboutus" className="site__service py-8 md:py-16">
       <div className="container mx-auto">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
           {ITEMS.map((item: any) => (

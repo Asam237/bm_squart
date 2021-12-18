@@ -6,7 +6,7 @@ export const LANGUAGES = {
         myNav: [
             {
                 name: "About Us",
-                link: "#"
+                link: "#aboutus"
             },
             {
                 name: "Contact Us",
