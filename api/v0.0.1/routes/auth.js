@@ -1,17 +1,20 @@
 const User = require("../models/User")
-const router = require("express").Router()
 const jwt = require("jsonwebtoken")
 const CryptoJS = require("crypto-js")
+const router = require("express").Router()
+const bcrypt = require("bcryptjs")
+
 
 router.post("/register", async (req, res) => {
+    console.log("email", req.body)
     const newUser = new User({
         username: req.body.username,
         firstName: req.body.firstName,
         lastName: req.body.lastName,
         mobile: req.body.mobile,
         adress: req.body.adress,
-        password: req.body.password
-    })
+        password: bcrypt.hashSync(req.body.password, 10)
+    });
     try {
         const savedUser = await newUser.save()
         res.status(201).json(savedUser)
@@ -21,39 +24,32 @@ router.post("/register", async (req, res) => {
 })
 
 router.post('/login', async (req, res) => {
+    const secret = process.env.PASS_SEC;
     try {
         const user = await User.findOne(
             {
-                username: req.body.email
+                username: req.body.username
             }
         );
         !user && res.status(401).json("Wrong User Name");
 
-        const hashedPassword = CryptoJS.AES.decrypt(
-            user.password,
-            process.env.PASS_SEC
-        );
+        if (user && bcrypt.compareSync(req.body.password, user.password)) {
+            const token = jwt.sign(
+                {
+                    userId: user.id
+                },
+                "AbbaSali97",
+                { expiresIn: '1d' }
+            )
+
+            res.status(200).send({ user: user, token: token })
 
 
-        const originalPassword = hashedPassword.toString(CryptoJS.enc.Utf8);
-        const inputPassword = req.body.password;
+        }
+    }
 
-        originalPassword != inputPassword &&
-            res.status(401).json("Wrong Password");
-
-        const accessToken = jwt.sign(
-            {
-                id: user._id,
-                isAdmin: user.isAdmin,
-            },
-            process.env.JWT_SEC,
-            { expiresIn: "3d" }
-        );
-
-        const { password, ...others } = user._doc;
-        res.status(200).json({ ...others, accessToken });
-
-    } catch (err) {
+    catch (err) {
+        console.log("Erreur::::", err)
         res.status(500).json(err);
     }
 

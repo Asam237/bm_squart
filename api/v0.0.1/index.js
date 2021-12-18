@@ -6,6 +6,7 @@ const dotenv = require("dotenv")
 const path = require("path")
 const userRoute = require("./routes/auth")
 const introRoute = require("./routes/intro")
+const clientRoute = require("./routes/client")
 
 
 mongoose
@@ -22,6 +23,7 @@ app.use(express.urlencoded({
 }))
 
 app.use("/api/auth", userRoute)
+app.use("/api/client", clientRoute)
 app.use("/api/intro", introRoute)
 
 app.listen(process.env.PORT || 5000, () => {
