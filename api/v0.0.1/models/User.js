@@ -6,6 +6,7 @@ const UserSchema = new mongoose.Schema({
     mobile: { type: String },
     adress: { type: String },
     password: { type: String },
+    clients: [{ type: mongoose.Types.ObjectId, ref: "Client" }],
     userType: { type: String, enum: ["customer", "admon"], default: "customer" }
 })
 
