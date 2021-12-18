@@ -19,7 +19,7 @@ export const Header = (props: any) => {
               className="site__header__logo-link border-gray-300 text-gray-200 px-4 py-2 rounded-full font-bold text-sm uppercase hover:text-gray-300 hover:bg-blue-900"
             >
               {props.name}
-              <span>&#178;</span>
+              <span>&#178;</span> Management System
             </a>
           </div>
           <div className="site__header__nav flex flex-col md:flex-row items-start md:items-center pt-4 md:pt-0">
