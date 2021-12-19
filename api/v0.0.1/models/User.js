@@ -6,8 +6,8 @@ const UserSchema = new mongoose.Schema({
     mobile: { type: String },
     adress: { type: String },
     password: { type: String, required: true },
-    clients: [{ type: mongoose.Types.ObjectId, ref: "Client" }],
-    userType: { type: String, enum: ["customer", "admin"], default: "admin" }
+    isAdmin: { type: Boolean, default: false },
+    userType: { type: String, enum: ["customer", "admin"], default: "admin" },
 },
     { timestamps: true }
 

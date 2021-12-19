@@ -13,7 +13,8 @@ router.post("/register", async (req, res) => {
         lastName: req.body.lastName,
         mobile: req.body.mobile,
         adress: req.body.adress,
-        password: bcrypt.hashSync(req.body.password, 10)
+        password: bcrypt.hashSync(req.body.password, 10),
+        isAdmin: true
     });
     try {
         const savedUser = await newUser.save()
@@ -36,10 +37,11 @@ router.post('/login', async (req, res) => {
         if (user && bcrypt.compareSync(req.body.password, user.password)) {
             const token = jwt.sign(
                 {
-                    userId: user.id
+                    userId: user.id,
+                    isAdmin: user.isAdmin
                 },
-                "AbbaSali97",
-                { expiresIn: '1d' }
+                "Abbasali97",
+                { expiresIn: '3d' }
             )
 
             res.status(200).send({ user: user, token: token })
@@ -49,7 +51,6 @@ router.post('/login', async (req, res) => {
     }
 
     catch (err) {
-        console.log("Erreur::::", err)
         res.status(500).json(err);
     }
 
