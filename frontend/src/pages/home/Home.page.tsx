@@ -6,9 +6,8 @@ import { Service } from "../../components/services/Service.component";
 import { LANGUAGES } from "../../constants/languages";
 import Contact from "../contact/Contact.page";
 
-document.title = "Home  |   BM²";
-
 export const Home = () => {
+  document.title = "Home  |   BM²";
   return (
     <div className="site">
       <Header name="BM " />
