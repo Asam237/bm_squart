@@ -12,12 +12,21 @@ export const SignupInput = (props: any) => {
   let [name, setName]: any = useRecoilState(nameState);
   let initialValues = {
     username: "",
-    email: "",
+    firstName: "",
+    lastName: "",
+    mobile: "",
+    adress: "",
     password: "",
   };
   let submit = async (value: any) => {
-    (await registerService(value.username, value.email, value.password)) &&
-      history.push("/dashboard");
+    (await registerService(
+      value.username,
+      value.firstName,
+      value.lastName,
+      value.mobile,
+      value.adress,
+      value.password
+    )) && history.push("/dashboard");
     setName(() => (name = value.email));
   };
 
@@ -26,7 +35,11 @@ export const SignupInput = (props: any) => {
       <Formik
         initialValues={initialValues}
         validationSchema={Yup.object().shape({
-          email: Yup.string().required("Email is required"),
+          email: Yup.string().required("Username is required"),
+          firstName: Yup.string().required("FirstName is required"),
+          lastName: Yup.string().required("LastName is required"),
+          mobile: Yup.string().required("Phone is required"),
+          adress: Yup.string().required("Adress is required"),
           password: Yup.string().required("Password is required"),
         })}
         onSubmit={(value: any) => {
@@ -66,12 +79,42 @@ export const SignupInput = (props: any) => {
               className="text-red-600 text-sm"
             />
             <MyInput
-              onChangeText={handleChange("email")}
+              onChangeText={handleChange("firstName")}
               myInputText="text"
-              title="Adresse Email"
+              title="First name"
             />
             <ErrorMessage
-              name="email"
+              name="firstName"
+              component="div"
+              className="text-red-600 text-sm"
+            />
+            <MyInput
+              onChangeText={handleChange("lastName")}
+              myInputText="text"
+              title="Last Name"
+            />
+            <ErrorMessage
+              name="lastName"
+              component="div"
+              className="text-red-600 text-sm"
+            />
+            <MyInput
+              onChangeText={handleChange("mobile")}
+              myInputText="text"
+              title="Phone"
+            />
+            <ErrorMessage
+              name="mobile"
+              component="div"
+              className="text-red-600 text-sm"
+            />
+            <MyInput
+              onChangeText={handleChange("adress")}
+              myInputText="text"
+              title="Adress"
+            />
+            <ErrorMessage
+              name="adress"
               component="div"
               className="text-red-600 text-sm"
             />
