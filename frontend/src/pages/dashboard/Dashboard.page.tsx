@@ -23,7 +23,7 @@ export const Dashboard = () => {
                   <MainItem name={i.name} number={i.number} />
                 ))}
               </div>
-              <div className="w-full">
+              <div className="w-full overflow-auto h-4/6 overflow-y-hidden">
                 <Client />
               </div>
             </section>

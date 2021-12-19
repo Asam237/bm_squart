@@ -1,6 +1,7 @@
 import React from "react";
 import { useRecoilValue } from "recoil";
 import { clientState } from "../../atoms/name";
+import user from "../../assets/img/user.png";
 
 const Client = () => {
   const Clients = useRecoilValue(clientState);
@@ -40,7 +41,7 @@ const Client = () => {
                             <div className="w-10 h-10 flex-shrink-0 mr-2 sm:mr-3">
                               <img
                                 className="rounded-full"
-                                src="https://raw.githubusercontent.com/cruip/vuejs-admin-dashboard-template/main/src/images/user-36-05.jpg"
+                                src={user}
                                 width="40"
                                 height="40"
                                 alt="Alex Shatov"
@@ -52,15 +53,17 @@ const Client = () => {
                           </div>
                         </td>
                         <td className="p-2 whitespace-nowrap">
-                          <div className="text-left">alexshatov@gmail.com</div>
+                          <div className="text-left">{item.numero}</div>
                         </td>
                         <td className="p-2 whitespace-nowrap">
-                          <div className="text-left font-medium text-green-500">
-                            $2,890.66
+                          <div className="text-left font-medium">
+                            {item.product}
                           </div>
                         </td>
                         <td className="p-2 whitespace-nowrap">
-                          <div className="text-lg text-center">🇺🇸</div>
+                          <div className="font-medium text-center text-green-500">
+                            $ {item.price}
+                          </div>
                         </td>
                       </tr>
                     ))}

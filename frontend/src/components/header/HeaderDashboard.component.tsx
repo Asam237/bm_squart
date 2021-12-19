@@ -1,5 +1,5 @@
 import React from "react";
-import user from "../../assets/img/user.png";
+import userPicture from "../../assets/img/user.png";
 import { LANGUAGES } from "../../constants/languages";
 import { useHistory } from "react-router";
 import { useRecoilValue } from "recoil";
@@ -32,7 +32,7 @@ const HeaderDashboard = () => {
           </p>
         </div>
         <div className="site__header-content flex justify-center items-center">
-          <img src={user} alt="" className="w-8 h-8 mr-4" />
+          <img src={userPicture} alt="" className="w-8 h-8 mr-4" />
           <p
             className="text-sm font-medium"
             style={{ fontFamily: " 'Poppins', sans-serif" }}
