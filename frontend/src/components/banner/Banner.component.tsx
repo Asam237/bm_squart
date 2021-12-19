@@ -26,7 +26,7 @@ export const Banner = (props: any) => {
               myTextColor="text-gray-200"
               lineHeight="leading-10"
               paddingVertical="py-6"
-              myText="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et, quis. Necessitatibus nemo veniam natus possimus vel sapiente hic voluptatem beatae. "
+              myText="Notre force passe par notre expérience et par l'écoute de nos clients avec qui nos spécialistes construisent chacune des étapes de leurs projets d'implémentation avec pour seul objectif : la réussite."
               variant="subTitle"
             />
           </div>

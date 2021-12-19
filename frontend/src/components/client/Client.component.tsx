@@ -5,14 +5,13 @@ import user from "../../assets/img/user.png";
 
 const Client = () => {
   const Clients = useRecoilValue(clientState);
-  console.log("client state:::", Clients);
   return (
     <div className="site__client w-full mt-10">
       <section className="antialiased bg-gray-200 text-gray-600 px-4">
         <div className="flex flex-col justify-center">
           <div className="w-full mx-auto bg-white shadow-lg rounded-sm border border-gray-200">
             <header className="px-5 py-4 border-b border-gray-100">
-              <h2 className="font-semibold text-gray-800">Clients</h2>
+              <h2 className="font-semibold text-gray-800">Sales</h2>
             </header>
             <div className="p-3">
               <div className="overflow-x-auto">
@@ -20,16 +19,16 @@ const Client = () => {
                   <thead className="text-xs font-semibold uppercase text-gray-400 bg-gray-50">
                     <tr>
                       <th className="p-2 whitespace-nowrap">
-                        <div className="font-semibold text-left">Nom</div>
+                        <div className="font-semibold text-left">Name</div>
                       </th>
                       <th className="p-2 whitespace-nowrap">
                         <div className="font-semibold text-left">Numero</div>
                       </th>
                       <th className="p-2 whitespace-nowrap">
-                        <div className="font-semibold text-left">Produit</div>
+                        <div className="font-semibold text-left">Product</div>
                       </th>
                       <th className="p-2 whitespace-nowrap">
-                        <div className="font-semibold text-center">Prix</div>
+                        <div className="font-semibold text-center">Price</div>
                       </th>
                     </tr>
                   </thead>

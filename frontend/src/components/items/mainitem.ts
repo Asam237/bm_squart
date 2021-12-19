@@ -1,18 +1,18 @@
 export const MAINITEM = [
     {
-        name: "Name 1",
+        name: "Users",
         number: "12"
     },
     {
-        name: "Name 2",
+        name: "Categories",
         number: "14"
     },
     {
-        name: "Name 3",
+        name: "Products",
         number: "9"
     },
     {
-        name: "Name 4",
+        name: "Sales",
         number: "4"
     },
 ]
