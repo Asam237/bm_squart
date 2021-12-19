@@ -37,4 +37,31 @@ route.delete("/:id", verifyTokenAndAdmin, async (req, res) => {
     }
 })
 
+
+route.get("/", async (req, res) => {
+    const qNew = req.query.new;
+    const qClient = req.query.client;
+    try {
+        let Clients;
+
+        if (qNew) {
+            Clients = await Client.find().sort({ createdAt: -1 }).limit(1);
+        } else if (qClient) {
+            Clients = await Client.find({
+                clients: {
+                    $in: [qClient],
+                },
+            });
+        } else {
+            Clients = await Client.find().populate();
+        }
+
+        res.status(200).json(Clients);
+    } catch (err) {
+        console.log(err)
+        res.status(500).json(err);
+    }
+});
+
+
 module.exports = route

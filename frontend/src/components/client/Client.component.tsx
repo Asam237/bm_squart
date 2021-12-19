@@ -15,16 +15,16 @@ const Client = () => {
                   <thead className="text-xs font-semibold uppercase text-gray-400 bg-gray-50">
                     <tr>
                       <th className="p-2 whitespace-nowrap">
-                        <div className="font-semibold text-left">Name</div>
+                        <div className="font-semibold text-left">Nom</div>
                       </th>
                       <th className="p-2 whitespace-nowrap">
-                        <div className="font-semibold text-left">Email</div>
+                        <div className="font-semibold text-left">Numero</div>
                       </th>
                       <th className="p-2 whitespace-nowrap">
-                        <div className="font-semibold text-left">Spent</div>
+                        <div className="font-semibold text-left">Produit</div>
                       </th>
                       <th className="p-2 whitespace-nowrap">
-                        <div className="font-semibold text-center">Country</div>
+                        <div className="font-semibold text-center">Prix</div>
                       </th>
                     </tr>
                   </thead>
