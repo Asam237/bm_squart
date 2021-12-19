@@ -5,12 +5,11 @@ const headers = {
     'Content-Type': 'application/json',
 };
 
-export const loginService = async (email: string, password: string) => {
+export const loginService = async (username: string, password: string) => {
     const data = {
-        email,
+        username,
         password
     }
-    console.log("Data here !", data)
     try {
         const result = await axios({
             url: `${BASE_URL}/login`,
@@ -20,15 +19,18 @@ export const loginService = async (email: string, password: string) => {
         })
         return result.data
     } catch (e) {
-        console.log("Erreur de la console !", e)
+        console.log("Erreur : ", e)
     }
 }
 
 
-export const registerService = async (username: string, email: string, password: string) => {
+export const registerService = async (username: string, firstName: string, lastName: string, mobile: string, adress: string, password: string) => {
     const data = {
         username,
-        email,
+        firstName,
+        lastName,
+        mobile,
+        adress,
         password
     }
     try {
@@ -45,7 +47,7 @@ export const registerService = async (username: string, email: string, password:
             console.log("error")
         }
     } catch (e) {
-        console.log(e)
+        console.log("Error : ", e)
     }
 
 }

@@ -17,7 +17,7 @@ export const Home = () => {
       </Suspense>
       <Service />
       <Contact />
-      <Footer title={LANGUAGES.home.name} />
+      <Footer title="BM ²" />
     </div>
   );
 };
