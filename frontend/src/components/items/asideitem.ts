@@ -4,11 +4,11 @@ export const ASIDEITEMS = [
         link: "#"
     },
     {
-        name: "Customer",
+        name: "Profil",
         link: "#"
     },
     {
-        name: "Admin",
+        name: "Setting",
         link: "#"
     },
 ]
