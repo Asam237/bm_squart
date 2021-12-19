@@ -1,9 +1,14 @@
 import React from "react";
+import { useRecoilValue } from "recoil";
+import { nameState } from "../../atoms/name";
 import Aside from "../../components/aside/Aside.component";
 import HeaderDashboard from "../../components/header/HeaderDashboard.component";
 import { MAINITEM } from "../../components/items/mainitem";
 import MainItem from "../../components/items/MainItems.component";
+
 export const Dashboard = () => {
+  const name = useRecoilValue(nameState);
+  document.title = "Dashboard (" + name + ")";
   return (
     <div className="site h-screen bg-gray-800">
       <div className="site__dashboard">
