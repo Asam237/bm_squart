@@ -10,7 +10,7 @@ export const Service = (props: any) => {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
           {ITEMS.map((item: any) => (
             <div className="site__service-item">
-              <div className="border-2 w-20 h-20 mx-auto flex mb-4 justify-center items-center p-2 border-gray-900 rounded-full">
+              <div className="border-2 w-20 h-20 mx-auto flex mb-4 justify-center items-center p-2 border-gray-500 rounded-full">
                 <img src={item.image} className="w-12 mx-auto  h-12" />
               </div>
               <MyText
