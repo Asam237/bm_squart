@@ -12,13 +12,13 @@ export const LoginInput = (props: any) => {
   let [name, setName]: any = useRecoilState(nameState);
   const history = useHistory();
   const initialValues = {
-    email: "",
+    username: "",
     password: "",
   };
   let submit = async (value: any) => {
-    (await loginService(value.email, value.password)) &&
+    (await loginService(value.username, value.password)) &&
       history.push("/dashboard");
-    setName(() => (name = value.email));
+    setName(() => (name = value.username));
   };
 
   return (
@@ -26,8 +26,8 @@ export const LoginInput = (props: any) => {
       <Formik
         initialValues={initialValues}
         validationSchema={Yup.object().shape({
-          email: Yup.string().required("Email is required"),
-          password: Yup.string().required("Password is required"),
+          username: Yup.string().required("username is required"),
+          password: Yup.string().required("password is required"),
         })}
         onSubmit={(value: any) => {
           submit(value);
@@ -55,12 +55,12 @@ export const LoginInput = (props: any) => {
               </a>
             </p>
             <MyInput
-              onChangeText={handleChange("email")}
+              onChangeText={handleChange("username")}
               myInputText="text"
-              title="email"
+              title="username"
             />
             <ErrorMessage
-              name="email"
+              name="username"
               component="div"
               className="text-red-600 text-sm"
             />

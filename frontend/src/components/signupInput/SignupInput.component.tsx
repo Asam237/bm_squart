@@ -1,46 +1,43 @@
-import { Formik, ErrorMessage } from "formik";
 import React from "react";
+import { Formik, ErrorMessage } from "formik";
 import { useHistory } from "react-router-dom";
 import { registerService } from "../../services/auth.service";
 import { MyInput } from "../myInput/MyInput.component";
 import * as Yup from "yup";
 import { useRecoilState } from "recoil";
-import { nameState } from "../../atoms/name";
+import { nameState, userState } from "../../atoms/name";
 
 export const SignupInput = (props: any) => {
-  const history = useHistory();
   let [name, setName]: any = useRecoilState(nameState);
-  let initialValues = {
-    username: "",
-    firstName: "",
-    lastName: "",
-    mobile: "",
-    adress: "",
-    password: "",
+  const history = useHistory();
+  const initialValues = {
+    username: "asam",
+    fullName: "abubakar mamate",
+    mobile: "237676178676",
+    adress: "maroua",
+    password: "123456",
   };
   let submit = async (value: any) => {
     (await registerService(
       value.username,
-      value.firstName,
-      value.lastName,
+      value.fullName,
       value.mobile,
       value.adress,
       value.password
-    )) && history.push("/dashboard");
-    setName(() => (name = value.email));
+    )) && (await history.push("/dashboard"));
+    setName(() => (name = value.username));
   };
 
   return (
-    <div className="container pt-20 px-4 md:px-0 md:py-16 max-w-max mx-auto">
+    <div className="container pt-14 px-4 md:px-0 md:py-10 max-w-max mx-auto">
       <Formik
         initialValues={initialValues}
         validationSchema={Yup.object().shape({
-          email: Yup.string().required("Username is required"),
-          firstName: Yup.string().required("FirstName is required"),
-          lastName: Yup.string().required("LastName is required"),
-          mobile: Yup.string().required("Phone is required"),
-          adress: Yup.string().required("Adress is required"),
-          password: Yup.string().required("Password is required"),
+          username: Yup.string().required("username is required"),
+          fullName: Yup.string().required("firstname is required"),
+          mobile: Yup.string().required("phone is required"),
+          adress: Yup.string().required("adress is required"),
+          password: Yup.string().required("password is required"),
         })}
         onSubmit={(value: any) => {
           submit(value);
@@ -79,25 +76,16 @@ export const SignupInput = (props: any) => {
               className="text-red-600 text-sm"
             />
             <MyInput
-              onChangeText={handleChange("firstName")}
+              onChangeText={handleChange("fullName")}
               myInputText="text"
-              title="First name"
+              title="Full name"
             />
             <ErrorMessage
-              name="firstName"
+              name="fullName"
               component="div"
               className="text-red-600 text-sm"
             />
-            <MyInput
-              onChangeText={handleChange("lastName")}
-              myInputText="text"
-              title="Last Name"
-            />
-            <ErrorMessage
-              name="lastName"
-              component="div"
-              className="text-red-600 text-sm"
-            />
+
             <MyInput
               onChangeText={handleChange("mobile")}
               myInputText="text"
@@ -108,16 +96,7 @@ export const SignupInput = (props: any) => {
               component="div"
               className="text-red-600 text-sm"
             />
-            <MyInput
-              onChangeText={handleChange("adress")}
-              myInputText="text"
-              title="Adress"
-            />
-            <ErrorMessage
-              name="adress"
-              component="div"
-              className="text-red-600 text-sm"
-            />
+
             <MyInput
               onChangeText={handleChange("password")}
               myInputText="password"
@@ -153,7 +132,6 @@ export const SignupInput = (props: any) => {
             </div>
             <button
               onClick={() => handleSubmit()}
-              // onClick={() => history.push("/dashboard")}
               style={{ fontFamily: " 'Poppins', sans-serif" }}
               className="hover:bg-blue-900 border-2 font-extrabold border-gray-300 hover:text-gray-300 bg-gray-800 w-full mt-4 text-sm text-white p-3 rounded-md"
             >

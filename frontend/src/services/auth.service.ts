@@ -24,15 +24,15 @@ export const loginService = async (username: string, password: string) => {
 }
 
 
-export const registerService = async (username: string, firstName: string, lastName: string, mobile: string, adress: string, password: string) => {
+export const registerService = async (username: string, fullName: string, mobile: string, adress: string, password: string) => {
     const data = {
         username,
-        firstName,
-        lastName,
+        fullName,
         mobile,
         adress,
         password
     }
+    console.log("data", data)
     try {
         const result = await axios({
             url: `${BASE_URL}/register`,

@@ -9,8 +9,7 @@ router.post("/register", async (req, res) => {
     console.log("email", req.body)
     const newUser = new User({
         username: req.body.username,
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
+        fullName: req.body.fullName,
         mobile: req.body.mobile,
         adress: req.body.adress,
         password: bcrypt.hashSync(req.body.password, 10),

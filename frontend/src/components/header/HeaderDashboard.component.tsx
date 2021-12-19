@@ -3,12 +3,14 @@ import user from "../../assets/img/user.png";
 import { LANGUAGES } from "../../constants/languages";
 import { useHistory } from "react-router";
 import { useRecoilValue } from "recoil";
-import { nameState } from "../../atoms/name";
+import { nameState, userState } from "../../atoms/name";
 
 const HeaderDashboard = () => {
   const history = useHistory();
   const name = useRecoilValue(nameState);
+  const user = useRecoilValue(userState);
   console.log("Name:::", name);
+  console.log("Full Name:::", user);
   return (
     <header className="site__header p-4 sticky z-50 bg-white">
       <div className="flex justify-between items-center">

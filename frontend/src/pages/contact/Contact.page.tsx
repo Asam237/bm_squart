@@ -5,7 +5,7 @@ const Contact = () => {
     <div id="contact" className="site__service py-8 md:py-16">
       <div className="container mx-auto">
         <div className="flex flex-col md:flex-row">
-          <div className="contact__form w-full md:w-1/2 flex-col md:px-4">
+          <div className="contact__form w-full md:w-1/2 flex-col md:px-4 text-center md:text-left">
             <h1
               style={{ fontFamily: " 'Poppins', sans-serif" }}
               className="font-bold text-gray-800 text-3xl"
@@ -28,7 +28,7 @@ const Contact = () => {
                 className="mt-3 px-4 py-2 w-10/12 lg:w-11/12 border-gray-300 border h-28"
                 placeholder="Enter your message"
               />
-              <div className="mt-5  w-10/12 md:w-28 flex items-center justify-center hover:bg-gray-900 border-gray-300 bg-gray-800 border-2 rounded-sm text-white px-4 py-2 text-sm font-extrabold">
+              <div className="mt-5 mx-auto md:mx-0  w-10/12 md:w-28 flex items-center justify-center hover:bg-gray-900 border-gray-300 bg-gray-800 border-2 rounded-sm text-white px-4 py-2 text-sm font-extrabold">
                 <a href="/login" className="text-white text-sm font-extrabold">
                   Submit
                 </a>
