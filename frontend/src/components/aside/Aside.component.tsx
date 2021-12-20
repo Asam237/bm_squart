@@ -31,7 +31,7 @@ const Aside = () => {
         <ul>
           <li>
             {ASIDEITEMS.map((i: any) => (
-              <AsideItems name={i.name} link={i.link} />
+              <AsideItems image={i.image} name={i.name} link={i.link} />
             ))}
           </li>
         </ul>
