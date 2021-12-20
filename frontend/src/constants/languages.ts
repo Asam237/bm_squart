@@ -23,5 +23,9 @@ export const LANGUAGES = {
                 link: "#"
             }
         ]
+    },
+    modals: {
+        strong: "Oups ! ",
+        content: " informations invalides"
     }
 }

@@ -1,5 +1,6 @@
 import React from "react";
 import close from "../../assets/img/close.png";
+import { LANGUAGES } from "../../constants/languages";
 
 const Error = (props: any) => {
   if (!props.show) {
@@ -10,8 +11,8 @@ const Error = (props: any) => {
       className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative"
       role="alert"
     >
-      <strong className="font-bold">Oups ! </strong>
-      <span className="block sm:inline">informations invalides.</span>
+      <strong className="font-bold">{LANGUAGES.modals.strong}</strong>
+      <span className="block sm:inline">{LANGUAGES.modals.content}</span>
       <span className="absolute top-0 bottom-0 right-0 px-4 py-3">
         <svg
           onClick={props.onClose}
