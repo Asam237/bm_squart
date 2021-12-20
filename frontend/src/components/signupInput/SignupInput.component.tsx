@@ -5,7 +5,7 @@ import { registerService } from "../../services/auth.service";
 import { MyInput } from "../myInput/MyInput.component";
 import * as Yup from "yup";
 import { useRecoilState } from "recoil";
-import { nameState, userState } from "../../atoms/name";
+import { nameState } from "../../atoms/name";
 
 export const SignupInput = (props: any) => {
   let [name, setName]: any = useRecoilState(nameState);
@@ -34,6 +34,7 @@ export const SignupInput = (props: any) => {
         initialValues={initialValues}
         validationSchema={Yup.object().shape({
           username: Yup.string().required("username is required"),
+          fullName: Yup.string().required("firstname is required"),
           mobile: Yup.string().required("phone is required"),
           adress: Yup.string().required("adress is required"),
           password: Yup.string().required("password is required"),
@@ -74,17 +75,6 @@ export const SignupInput = (props: any) => {
               component="div"
               className="text-red-600 text-sm"
             />
-            {/* <MyInput
-              onChangeText={handleChange("fullName")}
-              myInputText="text"
-              title="Full name"
-            />
-            <ErrorMessage
-              name="fullName"
-              component="div"
-              className="text-red-600 text-sm"
-            /> */}
-
             <MyInput
               onChangeText={handleChange("mobile")}
               myInputText="text"

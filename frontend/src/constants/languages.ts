@@ -26,6 +26,6 @@ export const LANGUAGES = {
     },
     modals: {
         strong: "Oups ! ",
-        content: " informations invalides"
+        content: " username invalide"
     }
 }

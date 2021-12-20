@@ -17,12 +17,10 @@ export const LoginInput = (props: any) => {
     password: "",
   };
   let submit = async (value: any) => {
-    if (
-      typeof (await loginService(value.username, value.password)) !==
-      "undefined"
-    ) {
-      (await loginService(value.username, value.password)) &&
-        history.push("/dashboard");
+    const result = await loginService(value.username, value.password);
+    if (typeof result === "object") {
+      console.log("result:::::", result);
+      result && history.push("/dashboard");
       setName(() => (name = value.username));
     } else {
       setShow(() => (show = true));
@@ -107,6 +105,7 @@ export const LoginInput = (props: any) => {
               </a>
             </div>
             <button
+              type="submit"
               onClick={() => handleSubmit()}
               // onClick={() => history.push("/dashboard")}
               style={{ fontFamily: " 'Poppins', sans-serif" }}
