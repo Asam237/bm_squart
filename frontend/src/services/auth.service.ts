@@ -19,7 +19,7 @@ export const loginService = async (username: string, password: string) => {
         })
         return result.data
     } catch (e) {
-        console.log("Erreur : ", e)
+        console.log("Erreur de la requette : ", e)
     }
 }
 

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { MyInput } from "../myInput/MyInput.component";
 import { useHistory } from "react-router-dom";
 import { Home } from "../../pages/home/Home.page";
@@ -7,22 +7,32 @@ import * as Yup from "yup";
 import { loginService } from "../../services/auth.service";
 import { useRecoilState } from "recoil";
 import { nameState } from "../../atoms/name";
+import Error from "../modals/Error.modal";
 
 export const LoginInput = (props: any) => {
   let [name, setName]: any = useRecoilState(nameState);
+  let [show, setShow]: any = useState(false);
   const history = useHistory();
   const initialValues = {
     username: "",
     password: "",
   };
   let submit = async (value: any) => {
-    (await loginService(value.username, value.password)) &&
-      history.push("/dashboard");
-    setName(() => (name = value.username));
+    if (
+      typeof (await loginService(value.username, value.password)) !==
+      "undefined"
+    ) {
+      (await loginService(value.username, value.password)) &&
+        history.push("/dashboard");
+      setName(() => (name = value.username));
+    } else {
+      setShow(() => (show = true));
+    }
   };
 
   return (
     <div className="container pt-20 px-4 md:px-0 md:py-16 max-w-max mx-auto">
+      <Error show={show} onClose={() => setShow(false)} />
       <Formik
         initialValues={initialValues}
         validationSchema={Yup.object().shape({
