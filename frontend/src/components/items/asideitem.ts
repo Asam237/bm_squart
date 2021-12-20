@@ -9,7 +9,7 @@ export const ASIDEITEMS = [
     },
     {
         name: "Profil",
-        link: "#",
+        link: "/dashboard/profile",
         image: profil
     },
     {

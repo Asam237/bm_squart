@@ -6,7 +6,7 @@ const AsideItems = (props: any) => {
       <img src={props.image} alt="" className="w-4 h-4 mr-3" />
       <a
         className="text-gray-200 font-bold cursor-pointer uppercase hover:underline text-sm"
-        href={props.linj}
+        href={props.link}
         style={{
           fontFamily: " 'Poppins', sans-serif ",
           fontSize: 16,
