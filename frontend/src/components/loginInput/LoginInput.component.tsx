@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { MyInput } from "../myInput/MyInput.component";
 import { useHistory } from "react-router-dom";
-import { Home } from "../../pages/home/Home.page";
 import { ErrorMessage, Formik } from "formik";
 import * as Yup from "yup";
 import { loginService } from "../../services/auth.service";

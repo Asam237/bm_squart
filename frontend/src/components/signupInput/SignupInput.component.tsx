@@ -11,11 +11,11 @@ export const SignupInput = (props: any) => {
   let [name, setName]: any = useRecoilState(nameState);
   const history = useHistory();
   const initialValues = {
-    username: "asam",
-    fullName: "abubakar mamate",
-    mobile: "237676178676",
-    adress: "maroua",
-    password: "123456",
+    username: "",
+    fullName: "",
+    mobile: "",
+    adress: "",
+    password: "",
   };
   let submit = async (value: any) => {
     (await registerService(
@@ -34,7 +34,6 @@ export const SignupInput = (props: any) => {
         initialValues={initialValues}
         validationSchema={Yup.object().shape({
           username: Yup.string().required("username is required"),
-          fullName: Yup.string().required("firstname is required"),
           mobile: Yup.string().required("phone is required"),
           adress: Yup.string().required("adress is required"),
           password: Yup.string().required("password is required"),
@@ -75,7 +74,7 @@ export const SignupInput = (props: any) => {
               component="div"
               className="text-red-600 text-sm"
             />
-            <MyInput
+            {/* <MyInput
               onChangeText={handleChange("fullName")}
               myInputText="text"
               title="Full name"
@@ -84,7 +83,7 @@ export const SignupInput = (props: any) => {
               name="fullName"
               component="div"
               className="text-red-600 text-sm"
-            />
+            /> */}
 
             <MyInput
               onChangeText={handleChange("mobile")}
