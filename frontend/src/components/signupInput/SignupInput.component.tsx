@@ -18,13 +18,8 @@ export const SignupInput = (props: any) => {
     password: "",
   };
   let submit = async (value: any) => {
-    (await registerService(
-      value.username,
-      value.fullName,
-      value.mobile,
-      value.adress,
-      value.password
-    )) && (await history.push("/dashboard"));
+    (await registerService(value.username, value.email, value.password)) &&
+      (await history.push("/dashboard"));
     setName(() => (name = value.username));
   };
 
@@ -34,9 +29,7 @@ export const SignupInput = (props: any) => {
         initialValues={initialValues}
         validationSchema={Yup.object().shape({
           username: Yup.string().required("username is required"),
-          fullName: Yup.string().required("firstname is required"),
-          mobile: Yup.string().required("phone is required"),
-          adress: Yup.string().required("adress is required"),
+          email: Yup.string().required("email is required"),
           password: Yup.string().required("password is required"),
         })}
         onSubmit={(value: any) => {
@@ -76,12 +69,12 @@ export const SignupInput = (props: any) => {
               className="text-red-600 text-sm"
             />
             <MyInput
-              onChangeText={handleChange("mobile")}
+              onChangeText={handleChange("email")}
               myInputText="text"
               title="Phone"
             />
             <ErrorMessage
-              name="mobile"
+              name="email"
               component="div"
               className="text-red-600 text-sm"
             />
