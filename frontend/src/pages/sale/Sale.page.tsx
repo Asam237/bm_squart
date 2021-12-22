@@ -7,7 +7,7 @@ const Sale = () => {
   return (
     <DashboardTemplate>
       <div className="w-full overflow-auto h-4/6 overflow-y-hidden">
-        <Title title="Sales" />
+        <Title title="Sales" link="/dashboard/add-sale" />
         <Client />
       </div>
     </DashboardTemplate>

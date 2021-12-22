@@ -4,7 +4,7 @@ import setting from "../../assets/img/settings.png"
 export const ASIDEITEMS = [
     {
         name: "Dashboard",
-        link: "#",
+        link: "/dashboard",
         image: dashboard
     },
     {
