@@ -6,5 +6,3 @@ const ClientSchema = new mongoose.Schema({
     price: { type: String },
     date: { type: Date, default: Date.now }
 })
-
-module.exports = mongoose.model("Client", ClientSchema)

@@ -24,12 +24,10 @@ export const loginService = async (username: string, password: string) => {
 }
 
 
-export const registerService = async (username: string, fullName: string, mobile: string, adress: string, password: string) => {
+export const registerService = async (username: string, email: string, password: string) => {
     const data = {
         username,
-        fullName,
-        mobile,
-        adress,
+        email,
         password
     }
     console.log("data", data)
