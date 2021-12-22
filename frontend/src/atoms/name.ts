@@ -13,5 +13,5 @@ export const userState = atom({
 
 export const clientState = atom({
     key: "client-state",
-    default: getClienService("token")
+    default: getClienService("")
 })

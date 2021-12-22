@@ -1,5 +1,5 @@
 import axios from "axios"
-const BASE_URL = "http://127.0.0.1:5000/api/client";
+const BASE_URL = "http://127.0.0.1:5000/api/products";
 
 const headers = {
     'Content-Type': 'application/json',
@@ -15,6 +15,7 @@ export const getClienService = async (token: string) => {
                 }
             }
         );
+        // console.log("Client service::::", result.data)
         return result.data
     } catch (e: any) {
         console.log(e)

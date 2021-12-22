@@ -28,5 +28,30 @@ router.delete("/:id", async (req, res) => {
     }
 })
 
+router.get("/", async (req, res) => {
+    const qNew = req.query.new;
+    const qProduct = req.query.product;
+    try {
+        let Products;
+
+        if (qNew) {
+            Clients = await Product.find().sort({ createdAt: -1 }).limit(1);
+        } else if (qProduct) {
+            Products = await Product.find({
+                products: {
+                    $in: [qProduct],
+                },
+            });
+        } else {
+            Products = await Product.find().populate();
+        }
+
+        res.status(200).json(Products);
+    } catch (err) {
+        console.log(err)
+        res.status(500).json(err);
+    }
+});
+
 
 module.exports = router
