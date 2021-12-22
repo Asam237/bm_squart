@@ -17,6 +17,6 @@ export const MAINITEM = [
     {
         name: "Sales",
         number: "4",
-        link: "#sales"
+        link: "/dashboard/sale"
     },
 ]
