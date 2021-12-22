@@ -1,20 +1,14 @@
-const User = require("../models/User")
-const jwt = require("jsonwebtoken")
-const CryptoJS = require("crypto-js")
-const router = require("express").Router()
+const User = require("../models/user")
 const bcrypt = require("bcryptjs")
-
+const jwt = require("jsonwebtoken")
+const router = require("express").Router()
 
 router.post("/register", async (req, res) => {
-    console.log("email", req.body)
     const newUser = new User({
         username: req.body.username,
-        fullName: req.body.fullName,
-        mobile: req.body.mobile,
-        adress: req.body.adress,
-        password: bcrypt.hashSync(req.body.password, 10),
-        isAdmin: true
-    });
+        email: req.body.email,
+        password: bcrypt.hashSync(req.body.password, 10)
+    })
     try {
         const savedUser = await newUser.save()
         res.status(201).json(savedUser)
@@ -23,37 +17,31 @@ router.post("/register", async (req, res) => {
     }
 })
 
-router.post('/login', async (req, res) => {
-    const secret = process.env.PASS_SEC;
-    try {
-        const user = await User.findOne(
-            {
-                username: req.body.username
-            }
-        );
-        !user && res.status(401).json("Wrong User Name");
 
-        if (user && bcrypt.compareSync(req.body.password, user.password)) {
+router.post("/login", async (req, res) => {
+    const secret = process.env.SECRET
+    try {
+        const user = await User.findOne({
+            username: req.body.username
+        })
+        if (!user) {
+            res.status(400).json(message: "The user not found !")
+        }
+        if (user && bcrypt.compare(req.body.password, user.password)) {
             const token = jwt.sign(
                 {
-                    userId: user.id,
-                    isAdmin: user.isAdmin
+                    userId: user.id
                 },
-                "Abbasali97",
-                { expiresIn: '3d' }
+                secret,
+                { expiresIn: "1d" }
             )
-
-            res.status(200).send({ user: user, token: token })
-
-
+            res.status(201).json({ user: user, token: token })
+        } else {
+            res.status(400).json(message: "Wrong password !")
         }
+    } catch (e) {
+        res.status(500).json(e)
     }
-
-    catch (err) {
-        res.status(500).json(err);
-    }
-
-});
-
+})
 
 module.exports = router
