@@ -24,7 +24,7 @@ export const Dashboard = () => {
                 ))}
               </div>
               <div className="w-full overflow-auto h-4/6 overflow-y-hidden">
-                <Client />
+                {/* <Client /> */}
               </div>
             </section>
           </main>
