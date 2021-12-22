@@ -20,7 +20,7 @@ export const Dashboard = () => {
             <section className="site__section flex flex-col bg-gray-200 w-full">
               <div className="grid mx-4 w-full mt-10 md:mt-16 gap-4 grid-cols-1 md:grid-cols-4">
                 {MAINITEM.map((i: any) => (
-                  <MainItem name={i.name} number={i.number} />
+                  <MainItem link={i.link} name={i.name} number={i.number} />
                 ))}
               </div>
               <div className="w-full overflow-auto h-4/6 overflow-y-hidden">
