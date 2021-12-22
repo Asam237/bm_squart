@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon api/v0.0.1/index.js"
+    "start": "nodemon api/v0.0.1/app.js"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
