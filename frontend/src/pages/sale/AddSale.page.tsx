@@ -8,19 +8,29 @@ import { MyInput } from "../../components/myInput/MyInput.component";
 import { useRecoilValue } from "recoil";
 import { categoryState } from "../../atoms/name";
 import { addSale } from "../../services/sale.service";
+import { useHistory } from "react-router";
 
 const AddSale = (props: any) => {
   let [show, setShow]: any = useState(false);
   let token = useRecoilValue(categoryState);
-  console.log("Token::::::", token);
+  const history = useHistory();
+  console.log("Token::::::Sale", token);
   const initialValues = {
     name: "",
     numero: "",
     product: "",
     price: 0,
+    category: "61c32e2ecbb2ede7b09a01bf",
   };
   let submit = async (value: any) => {
-    await addSale(value.name, value.numero, value.price, "7623");
+    (await addSale(
+      value.name,
+      value.numero,
+      value.product,
+      value.price,
+      value.category,
+      token
+    )) && (await history.push("/dashboard"));
   };
 
   return (
@@ -37,6 +47,7 @@ const AddSale = (props: any) => {
             price: Yup.string().required("price is required"),
           })}
           onSubmit={(value: any) => {
+            console.log("Value::::", value);
             submit(value);
           }}
         >
@@ -82,6 +93,16 @@ const AddSale = (props: any) => {
                 component="div"
                 className="text-red-600 text-sm"
               />
+              {/* <MyInput
+                onChangeText={handleChange("category")}
+                myInputText="text"
+                title="price"
+              />
+              <ErrorMessage
+                name="price"
+                component="div"
+                className="text-red-600 text-sm"
+              /> */}
               <button
                 type="submit"
                 onClick={() => handleSubmit()}

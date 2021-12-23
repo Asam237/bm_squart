@@ -1,16 +1,19 @@
 import React, { useState } from "react";
 import { MyInput } from "../myInput/MyInput.component";
-import { useHistory } from "react-router-dom";
+import { useHistory, Redirect } from "react-router-dom";
 import { ErrorMessage, Formik } from "formik";
 import * as Yup from "yup";
 import { loginService } from "../../services/auth.service";
 import { useRecoilState } from "recoil";
 import { categoryState, clientIdState, nameState } from "../../atoms/name";
 import Error from "../modals/Error.modal";
+import useLocalStorage from "../../hooks/useLocalStorage";
 
 export const LoginInput = (props: any) => {
   let [name, setName]: any = useRecoilState(nameState);
   let [categoryToken, setCategoryToken]: any = useRecoilState(categoryState);
+  let [persistedLog, setPersistedLog] = useLocalStorage("logs", {});
+  let [persistedName, setPersistedName] = useLocalStorage("name", "");
   let [clientId, setClientId]: any = useRecoilState(clientIdState);
   let [show, setShow]: any = useState(false);
   const history = useHistory();
@@ -22,11 +25,13 @@ export const LoginInput = (props: any) => {
     const result = await loginService(value.username, value.password);
     if (typeof result === "object") {
       console.log("result:::::", result);
-      result && history.push("/dashboard");
       setName(() => (name = value.username));
+      setPersistedLog(() => JSON.stringify(value));
       setCategoryToken(() => (categoryToken = result.token));
-      setClientId(() => (clientId = result.user._id));
-      console.log("result:::::id", clientId);
+      setClientId(() => (clientId = result.id));
+      setPersistedName(() => name);
+      localStorage.setItem("loginInfos", JSON.stringify(value));
+      history.push("/dashboard");
     } else {
       setShow(() => (show = true));
     }
@@ -111,7 +116,9 @@ export const LoginInput = (props: any) => {
             </div>
             <button
               type="submit"
-              onClick={() => handleSubmit()}
+              onClick={() => {
+                handleSubmit();
+              }}
               // onClick={() => history.push("/dashboard")}
               style={{ fontFamily: " 'Poppins', sans-serif" }}
               className="hover:bg-blue-900 border-2 font-extrabold border-gray-300 hover:text-gray-300 bg-gray-800 w-full mt-4 text-sm text-white p-3 rounded-md"

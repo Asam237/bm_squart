@@ -6,7 +6,7 @@ import user from "../../assets/img/user.png";
 const Client = () => {
   const Clients = useRecoilValue(clientState);
   const clientId = useRecoilValue(clientIdState);
-  console.log("client id:::::", Clients["61c2bceaa0d066453ac88ef7"]);
+  console.log("client:::::", Clients);
   console.log("Client value::::Category", Clients[clientId]);
   return (
     <div className="site__client w-full mt-10">

@@ -7,7 +7,9 @@ import { nameState, userState } from "../../atoms/name";
 
 const HeaderDashboard = () => {
   const history = useHistory();
-  const name = useRecoilValue(nameState);
+  const name =
+    localStorage.getItem("name") +
+    ""?.replace(/[`~!@#$%^&*()_|+\=÷¿?;:'",.<>\{\}\[\]\\\/]/gi, "");
   const user = useRecoilValue(userState);
   console.log("Name:::", name);
   console.log("Full Name:::", user);

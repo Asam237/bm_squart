@@ -9,9 +9,6 @@ import MainItem from "../../components/items/MainItems.component";
 import DashboardTemplate from "./DashboardTemplate";
 
 export const Dashboard = () => {
-  const name = useRecoilValue(nameState);
-
-  document.title = "Dashboard (" + name + ")";
   return (
     <DashboardTemplate>
       <div className="grid mx-4 w-full mt-10 md:mt-16 gap-4 grid-cols-1 md:grid-cols-4">

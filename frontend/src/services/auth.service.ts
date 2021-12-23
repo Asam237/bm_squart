@@ -1,14 +1,18 @@
 import axios from "axios"
 const BASE_URL = "http://127.0.0.1:5000/api/auth";
 
+let access_token = ""
 const headers = {
     'Content-Type': 'application/json',
+    'Authorization': 'Bearer ' + access_token
 };
+
 
 export const loginService = async (username: string, password: string) => {
     const data = {
         username,
-        password
+        password,
+        token: access_token
     }
     try {
         const result = await axios({
