@@ -5,11 +5,13 @@ import { ErrorMessage, Formik } from "formik";
 import * as Yup from "yup";
 import { loginService } from "../../services/auth.service";
 import { useRecoilState } from "recoil";
-import { nameState } from "../../atoms/name";
+import { categoryState, clientIdState, nameState } from "../../atoms/name";
 import Error from "../modals/Error.modal";
 
 export const LoginInput = (props: any) => {
   let [name, setName]: any = useRecoilState(nameState);
+  let [categoryToken, setCategoryToken]: any = useRecoilState(categoryState);
+  let [clientId, setClientId]: any = useRecoilState(clientIdState);
   let [show, setShow]: any = useState(false);
   const history = useHistory();
   const initialValues = {
@@ -22,6 +24,9 @@ export const LoginInput = (props: any) => {
       console.log("result:::::", result);
       result && history.push("/dashboard");
       setName(() => (name = value.username));
+      setCategoryToken(() => (categoryToken = result.token));
+      setClientId(() => (clientId = result.user._id));
+      console.log("result:::::id", clientId);
     } else {
       setShow(() => (show = true));
     }

@@ -1,8 +1,9 @@
 const Product = require("../models/product")
 const router = require("express").Router()
+const { verifyTokenAndAdmin } = require("./verifyToken")
 
 
-router.post("/", async (req, res) => {
+router.post("/", verifyTokenAndAdmin, async (req, res) => {
     const newProduct = new Product({
         name: req.body.name,
         numero: req.body.numero,
@@ -19,7 +20,7 @@ router.post("/", async (req, res) => {
     }
 })
 
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", verifyTokenAndAdmin, async (req, res) => {
     try {
         const deleteProduct = await Product.findByIdAndDelete(req.params.id)
         res.status(201).json(deleteProduct)

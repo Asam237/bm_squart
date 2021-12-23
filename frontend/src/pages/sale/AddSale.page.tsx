@@ -5,16 +5,23 @@ import DashboardTemplate from "../dashboard/DashboardTemplate";
 import Error from "../../components/modals/Error.modal";
 import * as Yup from "yup";
 import { MyInput } from "../../components/myInput/MyInput.component";
+import { useRecoilValue } from "recoil";
+import { categoryState } from "../../atoms/name";
+import { addSale } from "../../services/sale.service";
 
 const AddSale = (props: any) => {
   let [show, setShow]: any = useState(false);
+  let token = useRecoilValue(categoryState);
+  console.log("Token::::::", token);
   const initialValues = {
     name: "",
     numero: "",
     product: "",
-    price: "",
+    price: 0,
   };
-  let submit = async (value: any) => {};
+  let submit = async (value: any) => {
+    await addSale(value.name, value.numero, value.price, "7623");
+  };
 
   return (
     <DashboardTemplate>

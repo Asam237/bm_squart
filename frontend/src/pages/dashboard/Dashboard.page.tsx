@@ -10,6 +10,7 @@ import DashboardTemplate from "./DashboardTemplate";
 
 export const Dashboard = () => {
   const name = useRecoilValue(nameState);
+
   document.title = "Dashboard (" + name + ")";
   return (
     <DashboardTemplate>
