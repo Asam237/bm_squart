@@ -1,8 +1,8 @@
 // const Client = require("../models/Client")
 const route = require("express").Router()
-const { verifyTokenAndAdmin } = require("./verifyToken")
+const { verifyTokenAndAuthorization } = require("./verifyToken")
 
-route.post("/", verifyTokenAndAdmin, async (req, res) => {
+route.post("/", verifyTokenAndAuthorization, async (req, res) => {
     const newClient = new Client(req.body)
     try {
         const savedClient = await newClient.save()
@@ -12,7 +12,7 @@ route.post("/", verifyTokenAndAdmin, async (req, res) => {
     }
 })
 
-route.put("/:id", verifyTokenAndAdmin, async (req, res) => {
+route.put("/:id", verifyTokenAndAuthorization, async (req, res) => {
     try {
         const updateClient = await Client.findByIdAndUpdate(
             req.params.id,
@@ -27,7 +27,7 @@ route.put("/:id", verifyTokenAndAdmin, async (req, res) => {
     }
 })
 
-route.delete("/:id", verifyTokenAndAdmin, async (req, res) => {
+route.delete("/:id", verifyTokenAndAuthorization, async (req, res) => {
     try {
         const deleteClient = await findByIdAndDelete(req.params.id)
         res.status(200).json("Client has been deleted...");
