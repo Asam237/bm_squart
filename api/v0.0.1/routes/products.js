@@ -4,14 +4,7 @@ const { verifyTokenAndAdmin } = require("./verifyToken")
 
 
 router.post("/", verifyTokenAndAdmin, async (req, res) => {
-    const newProduct = new Product({
-        name: req.body.name,
-        numero: req.body.numero,
-        product: req.body.product,
-        price: req.body.price,
-        category: req.body.category
-    })
-
+    const newProduct = new Product(req.body)
     try {
         const savedProduct = await newProduct.save()
         res.status(201).json(savedProduct)
