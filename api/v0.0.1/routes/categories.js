@@ -3,10 +3,7 @@ const router = require("express").Router()
 const { verifyTokenAndAuthorization } = require("./verifyToken")
 
 router.post("/", verifyTokenAndAuthorization, async (req, res) => {
-    const newCategory = new Category({
-        name: req.body.name,
-        description: req.body.description
-    })
+    const newCategory = new Category(req.body)
     try {
         const savedCategory = await newCategory.save()
         res.status(201).json(savedCategory)
