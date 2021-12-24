@@ -24,7 +24,6 @@ export const LoginInput = (props: any) => {
   let submit = async (value: any) => {
     const result = await loginService(value.username, value.password);
     if (typeof result === "object") {
-      console.log("result:::::", result);
       setName(() => (name = value.username));
       setPersistedLog(() => JSON.stringify(value));
       setCategoryToken(() => (categoryToken = result.token));

@@ -11,8 +11,6 @@ const HeaderDashboard = () => {
     localStorage.getItem("name") +
     ""?.replace(/[`~!@#$%^&*()_|+\=÷¿?;:'",.<>\{\}\[\]\\\/]/gi, "");
   const user = useRecoilValue(userState);
-  console.log("Name:::", name);
-  console.log("Full Name:::", user);
   return (
     <header className="site__header p-4 sticky z-50 bg-white">
       <div className="flex justify-between items-center">

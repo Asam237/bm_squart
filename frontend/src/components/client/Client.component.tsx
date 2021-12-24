@@ -3,11 +3,15 @@ import { useRecoilValue } from "recoil";
 import { clientIdState, clientState } from "../../atoms/name";
 import user from "../../assets/img/user.png";
 
+type CLIENT = {
+  name: string;
+  product: string;
+  price: number;
+};
+
 const Client = () => {
-  const Clients = useRecoilValue(clientState);
+  const Clients: CLIENT[] = useRecoilValue(clientState);
   const clientId = useRecoilValue(clientIdState);
-  console.log("client:::::", Clients);
-  console.log("Client value::::Category", Clients[clientId]);
   return (
     <div className="site__client w-full mt-10">
       <section className="antialiased bg-gray-200 text-gray-600 px-4">

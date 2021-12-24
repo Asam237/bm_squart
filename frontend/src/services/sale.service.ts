@@ -15,7 +15,6 @@ export const addSale = async (name: string, numero: string, product: string, pri
         'Authorization': ` ${access_token}`
     };
     axios.defaults.headers.common['Authorization'] = `Bearer ${access_token}`
-    console.log("header", header)
     try {
         const result = await axios({
             url: `${BASE_URL}`,

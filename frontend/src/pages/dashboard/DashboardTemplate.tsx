@@ -10,7 +10,6 @@ import MainItem from "../../components/items/MainItems.component";
 const DashboardTemplate = (props: any) => {
   // const name = useRecoilValue(nameState);
   const name = localStorage.getItem("name");
-  console.log("Name", name);
   document.title = "Dashboard (" + name + ")";
   return (
     <Suspense

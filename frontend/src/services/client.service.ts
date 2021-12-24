@@ -15,7 +15,6 @@ export const getClienService = async (token: string) => {
                 }
             }
         );
-        // console.log("Client service::::", result.data)
         return result.data
     } catch (e: any) {
         console.log(e)

@@ -14,7 +14,6 @@ const AddSale = (props: any) => {
   let [show, setShow]: any = useState(false);
   let token = useRecoilValue(categoryState);
   const history = useHistory();
-  console.log("Token::::::Sale", token);
   const initialValues = {
     name: "",
     numero: "",
@@ -47,7 +46,6 @@ const AddSale = (props: any) => {
             price: Yup.string().required("price is required"),
           })}
           onSubmit={(value: any) => {
-            console.log("Value::::", value);
             submit(value);
           }}
         >
