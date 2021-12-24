@@ -50,7 +50,7 @@ const Client = () => {
                                 src={user}
                                 width="40"
                                 height="40"
-                                alt="Alex Shatov"
+                                alt="image"
                               />
                             </div>
                             <div className="font-medium text-gray-800">
