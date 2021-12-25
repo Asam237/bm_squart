@@ -7,7 +7,7 @@ router.post("/", verifyTokenAndAdmin, async (req, res) => {
     const newProduct = new Product(req.body)
     try {
         const savedProduct = await newProduct.save()
-        res.status(201).json(savedProduct)
+        res.status(200).json(savedProduct)
     } catch (e) {
         res.status(500).json(e)
     }
@@ -15,8 +15,8 @@ router.post("/", verifyTokenAndAdmin, async (req, res) => {
 
 router.delete("/:id", verifyTokenAndAdmin, async (req, res) => {
     try {
-        const deleteProduct = await Product.findByIdAndDelete(req.params.id)
-        res.status(201).json(deleteProduct)
+        await Product.findByIdAndDelete(req.params.id)
+        res.status(200).json("delete product")
     } catch (e) {
         res.status(500).json(e)
     }
@@ -46,6 +46,20 @@ router.get("/", async (req, res) => {
         res.status(500).json(err);
     }
 });
+
+router.put("/:id", async (req, res) => {
+    try {
+        const updateProduct = await Product.findByIdAndUpdate(req.params,
+            {
+                $set: req.body
+            },
+            { new: true }
+        )
+        res.status(200).json(updateProduct)
+    } catch (e) {
+        res.status(500).json(e)
+    }
+})
 
 
 module.exports = router
